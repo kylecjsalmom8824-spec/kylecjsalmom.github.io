@@ -1,47 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Sound Space</title>
+  <title>Neon Haven</title>
   <style>
     body {
-      background: #0f0f0f;
-      color: white;
-      font-family: Arial;
-      text-align: center;
-      padding-top: 100px;
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at center, #1a1a2e, #0f0f1a);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      overflow: hidden;
     }
 
     h1 {
-      font-size: 40px;
+      font-size: 50px;
+      color: #00f7ff;
+      text-shadow: 0 0 10px #00f7ff,
+                   0 0 20px #00f7ff,
+                   0 0 40px #ff00f7;
+      margin-bottom: 60px;
     }
 
     button {
-      padding: 15px 25px;
-      margin: 10px;
-      font-size: 18px;
-      background: #1f1f1f;
-      color: white;
-      border: 1px solid #444;
+      padding: 20px 50px;
+      margin: 15px;
+      font-size: 20px;
+      border: 2px solid #00f7ff;
+      background: transparent;
+      color: #00f7ff;
+      border-radius: 12px;
       cursor: pointer;
       transition: 0.3s;
+      text-shadow: 0 0 8px #00f7ff;
+      box-shadow: 0 0 10px #00f7ff;
     }
 
     button:hover {
-      background: #333;
+      background: #00f7ff;
+      color: black;
+      box-shadow: 0 0 20px #ff00f7;
     }
   </style>
 </head>
 <body>
 
-<h1>My Free Sound Website 🎵</h1>
+<h1>Neon Haven 🌌</h1>
 
-<button onclick="playSound('rain.mp3')">Rain 🌧️</button>
-<button onclick="playSound('chill.mp3')">Chill 🎧</button>
+<button onclick="playSound('rain.mp3')">🌧 Rain</button>
+<button onclick="playSound('cozy.mp3')">☕ Cozy</button>
 
 <script>
+  let currentAudio = null;
+
   function playSound(sound) {
-    let audio = new Audio(sound);
-    audio.play();
+    if (currentAudio) {
+      currentAudio.pause();
+    }
+
+    currentAudio = new Audio(sound);
+    currentAudio.loop = true;
+    currentAudio.play();
   }
 </script>
 
