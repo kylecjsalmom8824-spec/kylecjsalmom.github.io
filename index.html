@@ -61,3 +61,17 @@ body {
 
 </body>
 </html>
+let currentAudio = null;
+
+function playSound(file) {
+  if (currentAudio) {
+    currentAudio.pause();
+  }
+  currentAudio = new Audio(file);
+  currentAudio.loop = true;
+  currentAudio.play();
+}
+
+function stopSound() {
+  if (currentAudio) currentAudio.pause();
+}
